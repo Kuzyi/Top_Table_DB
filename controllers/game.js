@@ -10,7 +10,16 @@ const CreateGame = async (req, res) => {
     throw error
   }
 }
+const FindAllGames = async (req, res) => {
+  try {
+    let games = await Game.findAll()
+    res.send(games)
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
-  CreateGame
+  CreateGame,
+  FindAllGames
 }
