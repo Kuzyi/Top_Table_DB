@@ -19,7 +19,18 @@ const FindAllGames = async (req, res) => {
   }
 }
 
+const DeleteGame = async (req, res) => {
+  try {
+    let gameId = parseInt(req.params.gameId)
+    await Game.destroy({ where: { id: gameId } })
+    res.send({ message: `Deleted game with an id of ${gameId}` })
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   CreateGame,
-  FindAllGames
+  FindAllGames,
+  DeleteGame
 }
