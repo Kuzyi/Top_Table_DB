@@ -21,7 +21,7 @@ const FindAllGames = async (req, res) => {
 
 const FindAGame = async (req, res) => {
   try {
-    let game = await Location.findByPk(req.params.gameId)
+    let game = await Game.findByPk(req.params.gameId)
     res.send(game)
   } catch (error) {
     throw error
