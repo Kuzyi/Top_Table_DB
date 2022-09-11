@@ -19,6 +19,15 @@ const FindAllGames = async (req, res) => {
   }
 }
 
+const FindAGame = async (req, res) => {
+  try {
+    let game = await Location.findByPk(req.params.gameId)
+    res.send(game)
+  } catch (error) {
+    throw error
+  }
+}
+
 const DeleteGame = async (req, res) => {
   try {
     let gameId = parseInt(req.params.gameId)
@@ -32,5 +41,6 @@ const DeleteGame = async (req, res) => {
 module.exports = {
   CreateGame,
   FindAllGames,
+  FindAGame,
   DeleteGame
 }
