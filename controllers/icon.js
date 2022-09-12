@@ -16,23 +16,18 @@ const CreateIcon = async (req, res) => {
     throw error
   }
 }
-const FindAllIcon = async (req, res) => {
+const FindIconsByGame = async (req, res) => {
   try {
-    let icons = await Icon.findAll()
+    let gameId = parseInt(req.params.gameId)
+    let icons = await Icon.findAll({
+      where: { gameId: gameId }
+      // include: [{ model: User }]z
+    })
     res.send(icons)
   } catch (error) {
     throw error
   }
 }
-
-// const FindAGame = async (req, res) => {
-//   try {
-//     let game = await Game.findByPk(req.params.gameId)
-//     res.send(game)
-//   } catch (error) {
-//     throw error
-//   }
-// }
 
 // const DeleteIcon = async (req, res) => {
 //   try {
@@ -48,7 +43,7 @@ const FindAllIcon = async (req, res) => {
 
 module.exports = {
   CreateIcon,
-  FindAllIcon
+  FindIconsByGame
   // FindAGame,
   // DeleteIcon
 }
