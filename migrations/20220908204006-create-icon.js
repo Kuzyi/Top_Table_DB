@@ -15,10 +15,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       positionx: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       positiony: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       iconColor: {
         type: Sequelize.STRING
