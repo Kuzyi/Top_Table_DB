@@ -29,21 +29,18 @@ const FindIconsByGame = async (req, res) => {
   }
 }
 
-// const DeleteIcon = async (req, res) => {
-//   try {
-//     let iconId = parseInt(req.params.gameId)
-//     await Game.destroy({ where: { id: gameId } })
-//     res.send({ message: `Deleted game with an id of ${gameId}` })
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
-// dont grab this from params for deleting icon
+const DeleteIcon = async (req, res) => {
+  try {
+    let iconId = parseInt(req.params.iconId)
+    await Icon.destroy({ where: { id: iconId } })
+    res.send({ message: `Deleted icon with an id of ${iconId}` })
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   CreateIcon,
-  FindIconsByGame
-  // FindAGame,
-  // DeleteIcon
+  FindIconsByGame,
+  DeleteIcon
 }
