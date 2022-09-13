@@ -6,4 +6,6 @@ Router.get('/:gameId', controller.FindIconsByGame)
 
 Router.delete('/:iconId', controller.DeleteIcon)
 
+Router.put('/move/:iconId', controller.MoveIcon)
+
 module.exports = Router

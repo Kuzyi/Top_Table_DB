@@ -29,6 +29,19 @@ const FindIconsByGame = async (req, res) => {
   }
 }
 
+const MoveIcon = async (req, res) => {
+  try {
+    let iconId = parseInt(req.params.iconId)
+    let iconBody = await Icon.update(req.body, {
+      where: { id: iconId },
+      returning: true
+    })
+    res.send(iconBody)
+  } catch (error) {
+    throw error
+  }
+}
+
 const DeleteIcon = async (req, res) => {
   try {
     let iconId = parseInt(req.params.iconId)
@@ -42,5 +55,6 @@ const DeleteIcon = async (req, res) => {
 module.exports = {
   CreateIcon,
   FindIconsByGame,
-  DeleteIcon
+  DeleteIcon,
+  MoveIcon
 }
